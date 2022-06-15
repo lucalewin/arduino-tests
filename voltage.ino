@@ -2,17 +2,19 @@ int value = 0;
 float voltage;
 
 void setup(){
-  Serial.begin(9600);
+	Serial.begin(9600);
 }
 
 void loop(){
-  value = analogRead(A0);
-  // voltage = 41.44f * value + 1.71f;
-  // voltage = value * (25.15f / 1024.0f);
-  voltage = 0.02 * value - 0.04;
-  Serial.print("Voltage =");
-  Serial.println(voltage);
-  delay(500);
+	value = analogRead(A0);
+	// voltage = 41.44f * value + 1.71f;
+	// voltage = value * (25.15f / 1024.0f);
+	// voltage = 0.02495 * value - 0.04;
+	voltage = value * 25.0 / 1023.0;
+	Serial.print("U = ");
+	Serial.print(voltage);
+	Serial.println("V");
+	delay(500);
 }
 
 
